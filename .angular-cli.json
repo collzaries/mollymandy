@@ -19,9 +19,22 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/tether/dist/css/tether.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "./assets/css/agency.css",
+        "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/jquery.easing/jquery.easing.min.js",
+        "./assets/js/jqBootstrapValidation.js",
+        "./assets/js/contact_me.js",
+        "./assets/js/agency.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

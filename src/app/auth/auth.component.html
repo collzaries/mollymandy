@@ -1,0 +1,69 @@
+<!--Modal Login-->
+<ng-template #userLogin let-c="close" let-d="dismiss">
+  <div class="modal-header d-flex">
+    <div  class='p-2' style="margin-left: 20px">{{ localUserData.indicadores.oK || localUserData.indicadores.error }}</div>
+    <button type="button" class="close p-2 nav-link" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body d-flex flex-column">
+    <div class="input-group p-2">
+      <span class="input-group-addon" id="basic-addon1">@</span>
+      <input [(ngModel)]="email" type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group p-2">
+      <span class="input-group-addon" id="basic-addon1">***</span>
+      <input [(ngModel)]="password" type="password" class="form-control" placeholder="contraseña" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="modal-footer d-flex">
+    <button type="button" class="btn btn-link p-2" (click)="c('Close click')">Recuperar mi contraseña</button>
+    <button type="button" class="btn btn-success p-2" (click)="clicLogin()">Aceptar</button>
+  </div>
+</ng-template>
+
+<!--Modal Registro-->
+ <ng-template #userData let-c="close" let-d="dismiss">
+  <div class="modal-header  justify-content-end">{{localUserData.indicadores.oK || localUserData.indicadores.error}}
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body d-flex flex-column">
+    <div class="input-group p-2">
+      <span class="input-group-addon" id="basic-addon1">@</span>
+      <input [(ngModel)]="email" type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group p-2">
+      <span class="input-group-addon" id="basic-addon1">**</span>
+      <input [(ngModel)]="password" type="password" class="form-control" placeholder="contraseña" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group p-2">
+      <span class="input-group-addon" id="basic-addon1">**</span>
+      <input [(ngModel)]="confirm" type="password" class="form-control" placeholder="repite la contraseña" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="clicRegistrar()">Aceptar</button>
+  </div>
+</ng-template>
+
+<!-- Botones Iniciar Sesion y Registrar -->
+<div *ngIf='localUserData.indicadores.displayLogin' ngbRadioGroup name="radioBasic" class='btnsAuth d-flex align-middle'>
+  <label class="btn btn-primary p-2" (click)="loginForm(userLogin)">
+    <input type="radio"> Iniciar Sesion
+  </label>
+  <label class="btn btn-primary p-2" (click)="registrarForm(userData)">
+    <input type="radio"> Registrarse
+  </label>
+</div>
+
+<!-- Boton Usuario -->
+  <div *ngIf='localUserData.indicadores.displayUser' class="btn-group" role="group">
+      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{localUserData.res.email}}
+      </button>
+      <div style="position:absolute" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <a class="dropdown-item" (click)='onCerrarSesion()'>Cerrar Sesion</a>
+      </div>
+    </div>
